@@ -13,19 +13,21 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+
+import AddIcon from "@material-ui/icons/Add";
+
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const Sidebar = ({ classes }) => {
+const Sidebar = ({ classes, getProducts }) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [openSubMenu, setopenSubMenu] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -35,6 +37,9 @@ const Sidebar = ({ classes }) => {
     setOpen(false);
   };
 
+  const handleClick = () => {
+    setopenSubMenu(!openSubMenu);
+  };
   return (
     <>
       <CssBaseline />
@@ -85,55 +90,53 @@ const Sidebar = ({ classes }) => {
         </div>
         <Divider />
 
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography className={classes.heading}>Add Products</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <List>
-              {["Inbox", "Starred", "Send email", "Drafts"].map(
-                (text, index) => (
-                  <ListItem button key={text}>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItem>
-                )
-              )}
-            </List>
-          </AccordionDetails>
-        </Accordion>
+        <List>
+          {["Add products"].map((text, index) => (
+            <NavLink to="/addproduct/">
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  <AddIcon />
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </NavLink>
+          ))}
+        </List>
 
         <Divider />
-
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography className={classes.heading}>
+        <NavLink to="/delete">
+          <ListItem button button onClick={handleClick}>
+            <ListItemIcon>
               <DeleteForeverIcon />
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <List>
-              {["All mail", "Trash", "Spam"].map((text, index) => (
-                <ListItem button key={text}>
+            </ListItemIcon>
+            <ListItemText primary="Delete" />
+            {openSubMenu ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+        </NavLink>
+        {openSubMenu && (
+          <List>
+            {[
+              { name: "Мотоцикли", link: "motorcycles" },
+              { name: "Роботи пилососи", link: "robots" },
+              { name: "Квадрокоптери", link: "qudrocopters" },
+            ].map((el, index) => (
+              <NavLink to={"/delete/" + el.link}>
+                <ListItem
+                  button
+                  key={el.name}
+                  onClick={() => {
+                    getProducts(el.link);
+                  }}
+                >
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    <InboxIcon />
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText primary={el.name} />
                 </ListItem>
-              ))}
-            </List>
-          </AccordionDetails>
-        </Accordion>
+              </NavLink>
+            ))}
+          </List>
+        )}
       </Drawer>
     </>
   );

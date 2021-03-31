@@ -3,6 +3,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { NavLink } from "react-router-dom";
 
 const CategorySelect = ({ classes, handleCategoryChange, category }) => {
   return (
@@ -21,9 +22,15 @@ const CategorySelect = ({ classes, handleCategoryChange, category }) => {
         <MenuItem value="" disabled>
           Виберіть категорію
         </MenuItem>
-        <MenuItem value="motorcycle">Мотоцикли</MenuItem>
-        <MenuItem value="robots">Пилолоси</MenuItem>
-        <MenuItem value="qudrocopters">Квадрокоптери</MenuItem>
+        <MenuItem value="motorcycle">
+          <NavLink to="/addproduct/motorcycle">Мотоцикли</NavLink>
+        </MenuItem>
+        <MenuItem value="robots">
+          <NavLink to="/addproduct/robots">Пилоcoси</NavLink>
+        </MenuItem>
+        <MenuItem value="qudrocopters">
+          <NavLink to="/addproduct/qudrocopters">Квадрокоптери</NavLink>
+        </MenuItem>
       </Select>
     </FormControl>
   );

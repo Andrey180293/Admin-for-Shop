@@ -41,7 +41,7 @@ const Form = ({
         <Grid item xs={4}>
           <TextField
             id="standard-basic"
-            label="Введіть ім'я товару"
+            label="Назва товару"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
