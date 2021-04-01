@@ -12,17 +12,29 @@ import {
   setProperties,
   setData,
 } from "../store/action-creators/data";
-import { setUpdateData, updatePrice } from "../store/action-creators/products";
+import {
+  setUpdateData,
+  updatePrice,
+  updateName,
+  deleteDataItem,
+} from "../store/action-creators/products";
 import CustomizedTables from "../componets/Products Table/CustomizedTables";
 import { NavLink } from "react-router-dom";
 
-const Product_Container = ({ products, updatePrice }) => {
+const Product_Container = ({
+  products,
+  updatePrice,
+  updateName,
+  deleteDataItem,
+}) => {
   return (
     <>
       <CustomizedTables
-        products={products}
+        products={products && products.sort((a, b) => a.id - b.id)}
         setUpdateData={setUpdateData}
         updatePrice={updatePrice}
+        updateName={updateName}
+        deleteDataItem={deleteDataItem}
       />
     </>
   );
@@ -36,15 +48,10 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps, {
-    setAbout,
-    setCategory,
-    setName,
-    setPrice,
-    setImages,
-    setProperties,
-    setData,
     setUpdateData,
     updatePrice,
+    updateName,
+    deleteDataItem,
   })
 )(Product_Container);
 /*

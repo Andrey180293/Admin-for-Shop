@@ -12,6 +12,7 @@ import {
   setProperties,
   setData,
 } from "../store/action-creators/data";
+import { setUpdateData } from "../store/action-creators/products";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +46,7 @@ const Form_Container = ({
   setProperties,
   setData,
   data,
+  setUpdateData,
 }) => {
   const classes = useStyles();
 
@@ -106,5 +108,6 @@ export default compose(
     setImages,
     setProperties,
     setData,
+    setUpdateData,
   })
 )(Form_Container);

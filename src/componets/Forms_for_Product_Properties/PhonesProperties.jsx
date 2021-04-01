@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-const RobotsProperties = ({ setProperties }) => {
-  const [brend, setBrend] = useState("Xiaomi");
+const PhonesProperties = ({ setProperties }) => {
+  const [brend, setBrend] = useState("Samsung");
   const [country, setCountry] = useState("Китай");
   const [color, setColor] = useState("чорний");
   const [volumeOfBattery, setVolumeOfBattery] = useState(5000);
-  const [chargingHour, setChargingHour] = useState(90);
-  const [maxTime, setMaxTime] = useState(15);
-  const [weigth, setWeigth] = useState(5);
+  const [chargingHour, setСhargingHour] = useState(2);
+  const [diagonal, setDiagonal] = useState(5.5);
+  const [operatingMemory, setOperatingMemory] = useState(8);
+  const [memory, setMemory] = useState(128);
+  const [operatingSystem, setOperatingSystem] = useState("IOS");
+  const [weigth, setWeigth] = useState(350);
 
   useEffect(() => {
     setProperties({
@@ -17,10 +20,24 @@ const RobotsProperties = ({ setProperties }) => {
       color,
       volumeOfBattery,
       chargingHour,
-      maxTime,
+      diagonal,
+      operatingMemory,
+      memory,
+      operatingSystem,
       weigth,
     });
-  }, [brend, country, color, volumeOfBattery, chargingHour, maxTime, weigth]);
+  }, [
+    brend,
+    country,
+    color,
+    volumeOfBattery,
+    chargingHour,
+    diagonal,
+    operatingMemory,
+    memory,
+    operatingSystem,
+    weigth,
+  ]);
   return (
     <Grid container spacing={2} xs={12}>
       <Grid container item spacing={2} direction="row">
@@ -77,29 +94,64 @@ const RobotsProperties = ({ setProperties }) => {
         <Grid item xs={6}>
           <TextField
             style={{ width: "100%" }}
+            label="Діагональ екрану"
+            id="outlined-size-small"
+            variant="outlined"
+            defaultValue={diagonal}
+            onChange={(e) => setDiagonal(e.target.value)}
+            onFocus={(e) => e.target.select()}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            style={{ width: "100%" }}
             label="Час заряджання"
             id="outlined-size-small"
             variant="outlined"
             defaultValue={chargingHour}
-            onChange={(e) => setChargingHour(e.target.value)}
-            onFocus={(e) => e.target.select()}
-          />
-        </Grid>
-
-        <Grid item xs={6}>
-          <TextField
-            style={{ width: "100%" }}
-            label="Максимальний час роботи"
-            id="outlined-size-small"
-            variant="outlined"
-            defaultValue={maxTime}
-            onChange={(e) => setMaxTime(e.target.value)}
+            onChange={(e) => setСhargingHour(e.target.value)}
             onFocus={(e) => e.target.select()}
           />
         </Grid>
       </Grid>
 
       <Grid container item spacing={2} direction="row">
+        <Grid item xs={6}>
+          <TextField
+            style={{ width: "100%" }}
+            label="Оперативна пам'ять"
+            id="outlined-size-small"
+            variant="outlined"
+            defaultValue={operatingMemory}
+            onChange={(e) => setOperatingMemory(e.target.value)}
+            onFocus={(e) => e.target.select()}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            style={{ width: "100%" }}
+            label="Об'єм пам'яті"
+            id="outlined-size-small"
+            variant="outlined"
+            defaultValue={memory}
+            onChange={(e) => setMemory(e.target.value)}
+            onFocus={(e) => e.target.select()}
+          />
+        </Grid>
+      </Grid>
+
+      <Grid container item spacing={2} direction="row">
+        <Grid item xs={6}>
+          <TextField
+            style={{ width: "100%" }}
+            label="Операційна система"
+            id="outlined-size-small"
+            variant="outlined"
+            defaultValue={operatingSystem}
+            onChange={(e) => setOperatingSystem(e.target.value)}
+            onFocus={(e) => e.target.select()}
+          />
+        </Grid>
         <Grid item xs={6}>
           <TextField
             style={{ width: "100%" }}
@@ -115,4 +167,4 @@ const RobotsProperties = ({ setProperties }) => {
     </Grid>
   );
 };
-export default RobotsProperties;
+export default PhonesProperties;

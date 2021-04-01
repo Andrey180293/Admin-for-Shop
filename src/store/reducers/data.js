@@ -1,5 +1,3 @@
-import { GET_DATA } from "../action-creators/data";
-
 import {
   SET_CATEGORY,
   SET_ABOUT,
@@ -11,7 +9,7 @@ import {
 } from "../action-creators/data";
 
 const initialization = {
-  id: 111,
+  id: 25,
   amount: 1,
   category: null,
   name: null,
@@ -24,12 +22,6 @@ const initialization = {
 
 function dataReducer(state = initialization, action) {
   switch (action.type) {
-    case GET_DATA:
-      return {
-        ...state,
-        data: action.payload,
-      };
-
     case SET_ABOUT:
       return {
         ...state,

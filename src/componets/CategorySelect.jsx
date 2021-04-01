@@ -25,6 +25,9 @@ const CategorySelect = ({ classes, handleCategoryChange, category }) => {
         <MenuItem value="motorcycle">
           <NavLink to="/addproduct/motorcycle">Мотоцикли</NavLink>
         </MenuItem>
+        <MenuItem value="phones">
+          <NavLink to="/addproduct/phones">Телефони</NavLink>
+        </MenuItem>
         <MenuItem value="robots">
           <NavLink to="/addproduct/robots">Пилоcoси</NavLink>
         </MenuItem>

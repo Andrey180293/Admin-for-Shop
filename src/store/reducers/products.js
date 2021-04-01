@@ -1,4 +1,8 @@
-import { SET_PRODUCTS, UPDATE_PRICE } from "../action-creators/products";
+import {
+  SET_PRODUCTS,
+  UPDATE_PRICE,
+  UPDATE_NAME,
+} from "../action-creators/products";
 
 const initialization = {
   products: null,
@@ -20,7 +24,14 @@ function ProductsReducer(state = initialization, action) {
           action.payload,
         ],
       };
-
+    case UPDATE_NAME:
+      return {
+        ...state,
+        products: [
+          ...state.products.filter((el, i) => el.id !== action.payload.id),
+          action.payload,
+        ],
+      };
     default:
       return state;
   }

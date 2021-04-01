@@ -10,6 +10,7 @@ import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Icon from "@material-ui/core/Icon";
 import Grid from "@material-ui/core/Grid";
+import PhonesProperties from "./Forms_for_Product_Properties/PhonesProperties";
 
 const Form = ({
   about,
@@ -90,8 +91,16 @@ const Form = ({
         {category === "motorcycle" && (
           <MotorcyclesProperties setProperties={setProperties} />
         )}
-        {category === "robots" && <RobotsProperties />}
-        {category === "qudrocopters" && <QudrocoptersProperties />}
+        {category === "phones" && (
+          <PhonesProperties setProperties={setProperties} />
+        )}
+        {category === "robots" && (
+          <RobotsProperties setProperties={setProperties} />
+        )}
+
+        {category === "qudrocopters" && (
+          <QudrocoptersProperties setProperties={setProperties} />
+        )}
       </Grid>
 
       <Grid container spacing={6} item xs={6} direction="row">

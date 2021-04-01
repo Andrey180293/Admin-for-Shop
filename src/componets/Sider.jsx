@@ -117,6 +117,7 @@ const Sidebar = ({ classes, getProducts }) => {
           <List>
             {[
               { name: "Мотоцикли", link: "motorcycles" },
+              { name: "Телефони", link: "phones" },
               { name: "Роботи пилососи", link: "robots" },
               { name: "Квадрокоптери", link: "qudrocopters" },
             ].map((el, index) => (
