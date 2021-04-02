@@ -2,7 +2,7 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { getProducts } from "../store/action-creators/products";
-import Sidebar from "../componets/Sider";
+import Sidebar from "../componets/Sidebar";
 
 const SideBar_Container = ({ getProducts, classes }) => {
   return <Sidebar getProducts={getProducts} classes={classes} />;

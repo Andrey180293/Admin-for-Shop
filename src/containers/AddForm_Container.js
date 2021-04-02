@@ -63,7 +63,6 @@ const AddForm_Container = ({
     setProperties("");
   };
 
-  console.log(setData);
   return (
     <AddForm
       setName={setName}
@@ -86,7 +85,6 @@ const AddForm_Container = ({
     />
   );
 };
-
 const mapStateToProps = (state) => {
   return {
     data: state.data,

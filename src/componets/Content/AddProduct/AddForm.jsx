@@ -28,7 +28,6 @@ const AddForm = ({
   setUpdateData,
   newId,
   products,
-  setId,
 }) => {
   return (
     <Grid container spacing={6} item xs={12} justify="center">
@@ -39,7 +38,6 @@ const AddForm = ({
             category={category}
             classes={classes}
             newId={newId}
-            setId={setId}
             products={products}
           />
         </Grid>
