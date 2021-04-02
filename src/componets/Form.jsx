@@ -28,6 +28,9 @@ const Form = ({
   clearFields,
   data,
   setData,
+  newId,
+  products,
+  setId,
 }) => {
   return (
     <Grid container spacing={6} xs={12} justify="center">
@@ -37,6 +40,9 @@ const Form = ({
             handleCategoryChange={handleCategoryChange}
             category={category}
             classes={classes}
+            newId={newId}
+            setId={setId}
+            products={products}
           />
         </Grid>
         <Grid item xs={4}>
@@ -63,7 +69,7 @@ const Form = ({
               style={{ width: "100%" }}
               id="outlined-textarea"
               label="Додайте посилання на картинки через кому"
-              placeholder="Placeholder"
+              placeholder="Введіть текст"
               multiline
               variant="outlined"
               rowsMax="10"
@@ -76,7 +82,7 @@ const Form = ({
               style={{ width: "100%" }}
               id="outlined-textarea"
               label="Про товар"
-              placeholder="Placeholder"
+              placeholder="Введіть текст"
               multiline
               variant="outlined"
               rowsMax="10"
@@ -88,7 +94,7 @@ const Form = ({
       </Grid>
 
       <Grid item xs={6} direction="row">
-        {category === "motorcycle" && (
+        {category === "motorcycles" && (
           <MotorcyclesProperties setProperties={setProperties} />
         )}
         {category === "phones" && (

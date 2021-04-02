@@ -11,8 +11,13 @@ import {
   setImages,
   setProperties,
   setData,
+  setId,
 } from "../store/action-creators/data";
-import { setUpdateData } from "../store/action-creators/products";
+import {
+  setUpdateData,
+  getProducts,
+  newId,
+} from "../store/action-creators/products";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,6 +52,10 @@ const Form_Container = ({
   setData,
   data,
   setUpdateData,
+  setId,
+  getProducts,
+  products,
+  newId,
 }) => {
   const classes = useStyles();
 
@@ -84,6 +93,9 @@ const Form_Container = ({
       clearFields={clearFields}
       setData={setData}
       data={data}
+      newId={newId}
+      products={products}
+      setId={setId}
     />
   );
 };
@@ -96,6 +108,7 @@ const mapStateToProps = (state) => {
     name: state.data.name,
     price: state.data.price,
     imgValue: state.data.imgValue,
+    products: state.products.products,
   };
 };
 
@@ -109,5 +122,8 @@ export default compose(
     setProperties,
     setData,
     setUpdateData,
+    setId,
+    getProducts,
+    newId,
   })
 )(Form_Container);

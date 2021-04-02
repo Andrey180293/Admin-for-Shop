@@ -18,7 +18,10 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import AddIcon from "@material-ui/icons/Add";
-
+import MotorcycleIcon from "@material-ui/icons/Motorcycle";
+import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
+import AndroidIcon from "@material-ui/icons/Android";
+import FlightIcon from "@material-ui/icons/Flight";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import React from "react";
@@ -62,7 +65,7 @@ const Sidebar = ({ classes, getProducts }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Mini variant drawer
+            Програма управління сервером Online Shop
           </Typography>
         </Toolbar>
       </AppBar>
@@ -91,8 +94,8 @@ const Sidebar = ({ classes, getProducts }) => {
         <Divider />
 
         <List>
-          {["Add products"].map((text, index) => (
-            <NavLink to="/addproduct/">
+          {["Додати товар"].map((text, index) => (
+            <NavLink to="/addproduct/" style={{ textDecorationLine: "none" }}>
               <ListItem button key={text}>
                 <ListItemIcon>
                   <AddIcon />
@@ -104,24 +107,39 @@ const Sidebar = ({ classes, getProducts }) => {
         </List>
 
         <Divider />
-        <NavLink to="/delete">
+        <NavLink to="/delete" style={{ textDecorationLine: "none" }}>
           <ListItem button button onClick={handleClick}>
             <ListItemIcon>
               <DeleteForeverIcon />
             </ListItemIcon>
-            <ListItemText primary="Delete" />
+            <ListItemText primary="Редагувати" />
             {openSubMenu ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
         </NavLink>
         {openSubMenu && (
           <List>
             {[
-              { name: "Мотоцикли", link: "motorcycles" },
-              { name: "Телефони", link: "phones" },
-              { name: "Роботи пилососи", link: "robots" },
-              { name: "Квадрокоптери", link: "qudrocopters" },
+              {
+                name: "Мотоцикли",
+                link: "motorcycles",
+                icon: <MotorcycleIcon />,
+              },
+              { name: "Телефони", link: "phones", icon: <PhoneAndroidIcon /> },
+              {
+                name: "Роботи пилососи",
+                link: "robots",
+                icon: <AndroidIcon />,
+              },
+              {
+                name: "Квадрокоптери",
+                link: "qudrocopters",
+                icon: <FlightIcon />,
+              },
             ].map((el, index) => (
-              <NavLink to={"/delete/" + el.link}>
+              <NavLink
+                to={"/delete/" + el.link}
+                style={{ textDecorationLine: "none" }}
+              >
                 <ListItem
                   button
                   key={el.name}
@@ -129,9 +147,7 @@ const Sidebar = ({ classes, getProducts }) => {
                     getProducts(el.link);
                   }}
                 >
-                  <ListItemIcon>
-                    <InboxIcon />
-                  </ListItemIcon>
+                  <ListItemIcon>{el.icon}</ListItemIcon>
                   <ListItemText primary={el.name} />
                 </ListItem>
               </NavLink>

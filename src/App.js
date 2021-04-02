@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Content from "./componets/Content";
-import Sidebar from "./componets/Sider";
 import SideBar_Container from "./containers/SideBar_Container";
 
 const drawerWidth = 240;
