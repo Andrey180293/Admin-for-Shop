@@ -2,7 +2,7 @@
   "name": "client-for-shop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Andrey180293.github.io/Admin-for-Shop/",
+  "homepage": "https://Andrey180293.github.io/Admin-for-Shop",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
