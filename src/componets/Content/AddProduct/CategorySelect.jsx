@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 const CategorySelect = ({
   classes,
-  handleCategoryChange,
+  setCategory,
   category,
 
   newId,
@@ -24,7 +24,7 @@ const CategorySelect = ({
         displayEmpty
         className={classes.selectEmpty}
         inputProps={{ "aria-label": "Without label" }}
-        onChange={handleCategoryChange}
+        onChange={(e) => setCategory(e.target.value)}
       >
         <MenuItem value="" disabled>
           Виберіть категорію

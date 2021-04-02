@@ -33,7 +33,7 @@ const QudrocoptersProperties = ({ setProperties }) => {
     weigth,
   ]);
   return (
-    <Grid container spacing={2} xs={12}>
+    <Grid container spacing={2} item xs={12}>
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
@@ -73,6 +73,7 @@ const QudrocoptersProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Об'єм батереї"
             id="outlined-size-small"
@@ -87,6 +88,7 @@ const QudrocoptersProperties = ({ setProperties }) => {
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Радіус польоту"
             id="outlined-size-small"
@@ -98,6 +100,7 @@ const QudrocoptersProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Тривалість польоту"
             id="outlined-size-small"
@@ -112,6 +115,7 @@ const QudrocoptersProperties = ({ setProperties }) => {
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Максимальна швидкість"
             id="outlined-size-small"
@@ -123,6 +127,7 @@ const QudrocoptersProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Вага"
             id="outlined-size-small"

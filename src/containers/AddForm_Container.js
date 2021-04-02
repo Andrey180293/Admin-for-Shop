@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { compose } from "redux";
 import { connect } from "react-redux";
-import Form from "../componets/Form";
+import AddForm from "../componets/Content/AddProduct/AddForm";
 import {
   setAbout,
   setCategory,
@@ -10,8 +10,6 @@ import {
   setPrice,
   setImages,
   setProperties,
-  setData,
-  setId,
 } from "../store/action-creators/data";
 import {
   setUpdateData,
@@ -37,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form_Container = ({
+const AddForm_Container = ({
   about,
   setAbout,
   setCategory,
@@ -49,23 +47,12 @@ const Form_Container = ({
   setImages,
   imgValue,
   setProperties,
-  setData,
   data,
   setUpdateData,
-  setId,
-  getProducts,
   products,
   newId,
 }) => {
   const classes = useStyles();
-
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
-
-  const handleAboutChange = (event) => {
-    setAbout(event.target.value);
-  };
 
   const clearFields = () => {
     setAbout("");
@@ -76,26 +63,26 @@ const Form_Container = ({
     setProperties("");
   };
 
+  console.log(setData);
   return (
-    <Form
+    <AddForm
       setName={setName}
       setPrice={setPrice}
       name={name}
       price={price}
       about={about}
       classes={classes}
-      handleCategoryChange={handleCategoryChange}
+      setCategory={setCategory}
       category={category}
-      handleAboutChange={handleAboutChange}
+      setAbout={setAbout}
       setImages={setImages}
       imgValue={imgValue}
       setProperties={setProperties}
       clearFields={clearFields}
-      setData={setData}
+      setUpdateData={setUpdateData}
       data={data}
       newId={newId}
       products={products}
-      setId={setId}
     />
   );
 };
@@ -120,10 +107,8 @@ export default compose(
     setPrice,
     setImages,
     setProperties,
-    setData,
     setUpdateData,
-    setId,
     getProducts,
     newId,
   })
-)(Form_Container);
+)(AddForm_Container);

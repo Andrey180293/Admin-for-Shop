@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
-const MotorcyclesProperties = ({ setProperties }) => {
-  const [brend, setBrend] = useState("SkyBike");
-  const [clas, setClass] = useState("Cross");
-  const [color, setColor] = useState("black");
-  const [cubage, setCubage] = useState(180);
-  const [maxSpeed, setMaxSpeed] = useState(120);
-  const [volumeOfTank, setVolumeOfTank] = useState(4.5);
+const RobotsProperties = ({ setProperties }) => {
+  const [brend, setBrend] = useState("Xiaomi");
+  const [country, setCountry] = useState("Китай");
+  const [color, setColor] = useState("чорний");
+  const [volumeOfBattery, setVolumeOfBattery] = useState(5000);
+  const [chargingHour, setChargingHour] = useState(90);
+  const [maxTime, setMaxTime] = useState(15);
+  const [weigth, setWeigth] = useState(5);
 
-  // console.log(brend, clas, color, cubage, maxSpeed, volumeOfTank);
   useEffect(() => {
-    setProperties({ brend, clas, color, cubage, maxSpeed, volumeOfTank });
-  }, [clas, brend, color, cubage, maxSpeed, volumeOfTank]);
+    setProperties({
+      brend,
+      country,
+      color,
+      volumeOfBattery,
+      chargingHour,
+      maxTime,
+      weigth,
+    });
+  }, [brend, country, color, volumeOfBattery, chargingHour, maxTime, weigth]);
   return (
-    <Grid container spacing={2} xs={12}>
+    <Grid container spacing={2} item xs={12}>
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
@@ -30,11 +38,11 @@ const MotorcyclesProperties = ({ setProperties }) => {
         <Grid item xs={6}>
           <TextField
             style={{ width: "100%" }}
-            label="Клас"
+            label="Країна"
             id="outlined-size-small"
             variant="outlined"
-            defaultValue={clas}
-            onChange={(e) => setClass(e.target.value)}
+            defaultValue={country}
+            onChange={(e) => setCountry(e.target.value)}
             onFocus={(e) => e.target.select()}
           />
         </Grid>
@@ -54,12 +62,13 @@ const MotorcyclesProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
-            label="Кубатура"
+            label="Об'єм батереї"
             id="outlined-size-small"
             variant="outlined"
-            defaultValue={cubage}
-            onChange={(e) => setCubage(e.target.value)}
+            defaultValue={volumeOfBattery}
+            onChange={(e) => setVolumeOfBattery(e.target.value)}
             onFocus={(e) => e.target.select()}
           />
         </Grid>
@@ -68,23 +77,41 @@ const MotorcyclesProperties = ({ setProperties }) => {
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
-            label="Максимальна швидкість"
+            label="Час заряджання"
             id="outlined-size-small"
             variant="outlined"
-            defaultValue={maxSpeed}
-            onChange={(e) => setMaxSpeed(e.target.value)}
+            defaultValue={chargingHour}
+            onChange={(e) => setChargingHour(e.target.value)}
             onFocus={(e) => e.target.select()}
           />
         </Grid>
+
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
-            label="Місткість баку"
+            label="Максимальний час роботи"
             id="outlined-size-small"
             variant="outlined"
-            defaultValue={volumeOfTank}
-            onChange={(e) => setVolumeOfTank(e.target.value)}
+            defaultValue={maxTime}
+            onChange={(e) => setMaxTime(e.target.value)}
+            onFocus={(e) => e.target.select()}
+          />
+        </Grid>
+      </Grid>
+
+      <Grid container item spacing={2} direction="row">
+        <Grid item xs={6}>
+          <TextField
+            type="number"
+            style={{ width: "100%" }}
+            label="Вага"
+            id="outlined-size-small"
+            variant="outlined"
+            defaultValue={weigth}
+            onChange={(e) => setWeigth(e.target.value)}
             onFocus={(e) => e.target.select()}
           />
         </Grid>
@@ -92,4 +119,4 @@ const MotorcyclesProperties = ({ setProperties }) => {
     </Grid>
   );
 };
-export default MotorcyclesProperties;
+export default RobotsProperties;

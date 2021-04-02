@@ -92,7 +92,8 @@ export default function CustomizedTables({
                 {activNameIndex === index ? (
                   <StyledTableCell align="left">
                     <TextField
-                      autoFocus="true"
+                      onFocus={(e) => e.target.select()}
+                      autoFocus={true}
                       align="left"
                       id="outlined-basic"
                       label="Outlined"
@@ -123,7 +124,8 @@ export default function CustomizedTables({
                 {activeInputIndex === index ? (
                   <StyledTableCell align="right">
                     <TextField
-                      autoFocus="true"
+                      onFocus={(e) => e.target.select()}
+                      autoFocus={true}
                       align="right"
                       id="outlined-basic"
                       label="Outlined"

@@ -1,23 +1,21 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import CategorySelect from "./CategorySelect";
-import MotorcyclesProperties from "./Forms_for_Product_Properties/MotorcyclesProperties";
-import RobotsProperties from "./Forms_for_Product_Properties/RobotsProperties";
-import QudrocoptersProperties from "./Forms_for_Product_Properties/QudrocoptersProperties";
-
+import MotorcyclesProperties from "../EditProduct/Forms_for_Product_Properties/MotorcyclesProperties";
+import RobotsProperties from "../EditProduct/Forms_for_Product_Properties/RobotsProperties";
+import QudrocoptersProperties from "../EditProduct/Forms_for_Product_Properties/QudrocoptersProperties";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Icon from "@material-ui/core/Icon";
 import Grid from "@material-ui/core/Grid";
-import PhonesProperties from "./Forms_for_Product_Properties/PhonesProperties";
+import PhonesProperties from "../EditProduct/Forms_for_Product_Properties/PhonesProperties";
 
-const Form = ({
+const AddForm = ({
   about,
   classes,
   category,
-  handleCategoryChange,
-  handleAboutChange,
+  setCategory,
+  setAbout,
   setPrice,
   price,
   setName,
@@ -27,17 +25,17 @@ const Form = ({
   setProperties,
   clearFields,
   data,
-  setData,
+  setUpdateData,
   newId,
   products,
   setId,
 }) => {
   return (
-    <Grid container spacing={6} xs={12} justify="center">
+    <Grid container spacing={6} item xs={12} justify="center">
       <Grid container item xs={6} spacing={2} direction="row">
         <Grid item xs={4}>
           <CategorySelect
-            handleCategoryChange={handleCategoryChange}
+            setCategory={setCategory}
             category={category}
             classes={classes}
             newId={newId}
@@ -46,20 +44,34 @@ const Form = ({
           />
         </Grid>
         <Grid item xs={4}>
-          <TextField
-            id="standard-basic"
-            label="Назва товару"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          {name && name.split("").length < 4 ? (
+            <TextField
+              error
+              id="standard-basic-error-helper-text"
+              label="Назва товару"
+              value={name}
+              helperText="min 4 chars."
+              onChange={(e) => setName(e.target.value)}
+            />
+          ) : (
+            <TextField
+              autoComplete="off"
+              id="standard-basic"
+              label="Назва товару"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          )}
         </Grid>
         <Grid item xs={4}>
           <TextField
+            type="number"
             id="standard-basic"
             label="Ціна"
             autoComplete="off"
             value={price}
             onChange={(e) => setPrice(+e.target.value)}
+            onFocus={(e) => e.target.select()}
           />
         </Grid>
 
@@ -87,13 +99,13 @@ const Form = ({
               variant="outlined"
               rowsMax="10"
               value={about}
-              onChange={handleAboutChange}
+              onChange={(e) => setAbout(e.target.value)}
             />
           </Grid>
         </Grid>
       </Grid>
 
-      <Grid item xs={6} direction="row">
+      <Grid container item xs={6} direction="row">
         {category === "motorcycles" && (
           <MotorcyclesProperties setProperties={setProperties} />
         )}
@@ -113,11 +125,16 @@ const Form = ({
         <Grid item xs={6}>
           {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
           <Button
+            disabled={
+              name && name.split("").length > 3 && price !== null && price > 0
+                ? false
+                : true
+            }
             variant="contained"
             color="primary"
             className={classes.button}
             endIcon={<Icon>send</Icon>}
-            onClick={() => setData(data)}
+            onClick={() => setUpdateData(data)}
           >
             Send
           </Button>
@@ -131,11 +148,11 @@ const Form = ({
             startIcon={<DeleteIcon />}
             onClick={(e) => clearFields(e)}
           >
-            Clear
+            Cancel
           </Button>
         </Grid>
       </Grid>
     </Grid>
   );
 };
-export default Form;
+export default AddForm;

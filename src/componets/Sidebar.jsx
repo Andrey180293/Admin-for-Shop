@@ -12,7 +12,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -65,7 +64,7 @@ const Sidebar = ({ classes, getProducts }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Програма управління сервером Online Shop
+            Додаток управління даними Online Shop
           </Typography>
         </Toolbar>
       </AppBar>
@@ -95,8 +94,12 @@ const Sidebar = ({ classes, getProducts }) => {
 
         <List>
           {["Додати товар"].map((text, index) => (
-            <NavLink to="/addproduct/" style={{ textDecorationLine: "none" }}>
-              <ListItem button key={text}>
+            <NavLink
+              key={text}
+              to="/addproduct/"
+              style={{ textDecorationLine: "none" }}
+            >
+              <ListItem button>
                 <ListItemIcon>
                   <AddIcon />
                 </ListItemIcon>
@@ -137,12 +140,12 @@ const Sidebar = ({ classes, getProducts }) => {
               },
             ].map((el, index) => (
               <NavLink
+                key={el.name}
                 to={"/delete/" + el.link}
                 style={{ textDecorationLine: "none" }}
               >
                 <ListItem
                   button
-                  key={el.name}
                   onClick={() => {
                     getProducts(el.link);
                   }}

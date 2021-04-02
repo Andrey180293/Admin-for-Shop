@@ -12,13 +12,13 @@ import { SET_ID } from "../action-creators/products";
 const initialization = {
   id: null,
   amount: 1,
-  category: null,
-  name: null,
-  price: null,
+  category: "",
+  name: "",
+  price: 500,
   about: "",
-  img: null,
-  imgValue: null,
-  properties: null,
+  img: "",
+  imgValue: "",
+  properties: {},
 };
 
 function dataReducer(state = initialization, action) {

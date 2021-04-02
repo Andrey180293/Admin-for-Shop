@@ -1,8 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import logger from "redux-logger";
 import dataReducer from "./reducers/data";
 import ProductsReducer from "./reducers/products";
-
+import logger from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 
 let reducers = combineReducers({

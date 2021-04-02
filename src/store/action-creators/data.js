@@ -1,5 +1,3 @@
-import { db } from "../../servises/firebase";
-
 export const SET_ABOUT = "SET_ABOUT";
 export const SET_CATEGORY = "SET_CATEGORY";
 export const SET_NAME = "SET_NAME";
@@ -14,19 +12,5 @@ export const setCategory = (payload) => ({ type: SET_CATEGORY, payload });
 export const setName = (payload) => ({ type: SET_NAME, payload });
 export const setPrice = (payload) => ({ type: SET_PRICE, payload });
 export const setAmount = (payload) => ({ type: SET_AMOUNT, payload });
-
 export const setImages = (payload) => ({ type: SET_IMAGES, payload });
 export const setProperties = (payload) => ({ type: SET_PROPERTIES, payload });
-export const setId = (payload) => ({ type: SET_ID, payload });
-
-export const setData = (data) => {
-  let setStore = db.collection(`${data.category}`).doc(`${data.id}`);
-  setStore
-    .set(data)
-    .then(() => {
-      alert("Товар успішно додано!");
-    })
-    .catch((error) => {
-      console.error("Error : ", error);
-    });
-};

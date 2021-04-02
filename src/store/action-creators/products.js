@@ -5,11 +5,9 @@ export const UPDATE_NAME = "UPDATE_NAME";
 export const GET_PROD = "GET_PROD";
 export const SET_ID = "SET_ID";
 
-export const setProducts = (payload) => ({ type: SET_PRODUCTS, payload });
+const setProducts = (payload) => ({ type: SET_PRODUCTS, payload });
 export const updatePrice = (payload) => ({ type: UPDATE_PRICE, payload });
 export const updateName = (payload) => ({ type: UPDATE_NAME, payload });
-
-export const getProd = (payload) => ({ type: GET_PROD, payload });
 
 //-----------------------------------------------------------
 
@@ -32,16 +30,19 @@ export const getProducts = (link) => {
 //-----------------------------------------------------------
 
 export const setUpdateData = (item) => {
-  console.log(item);
-  let setStore = db.collection(`${item.category}`).doc(`${item.id}`);
-  setStore
-    .set(item)
-    .then(() => {
-      alert("Товар успішно додано!");
-    })
-    .catch((error) => {
-      alert("Error : ", error);
-    });
+  return async (dispatch) => {
+    await db
+      .collection(`${item.category}`)
+      .doc(`${item.id}`)
+      .set(item)
+      .then(() => {
+        alert("Товар успішно додано!");
+        dispatch(getProducts(item.category));
+      })
+      .catch((error) => {
+        alert("Error : ", error);
+      });
+  };
 };
 
 //-----------------------------------------------------------
@@ -60,7 +61,9 @@ export const deleteDataItem = (item) => {
   };
 };
 const setId = (payload) => ({ type: SET_ID, payload });
+
 //-----------------------------------------------------------
+
 export const newId = (category) => {
   return async (dispatch) => {
     const products = await dispatch(getProducts(category));

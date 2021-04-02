@@ -39,7 +39,7 @@ const PhonesProperties = ({ setProperties }) => {
     weigth,
   ]);
   return (
-    <Grid container spacing={2} xs={12}>
+    <Grid container spacing={2} item xs={12}>
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
@@ -79,6 +79,7 @@ const PhonesProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Об'єм батереї"
             id="outlined-size-small"
@@ -93,6 +94,7 @@ const PhonesProperties = ({ setProperties }) => {
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Діагональ екрану"
             id="outlined-size-small"
@@ -104,6 +106,7 @@ const PhonesProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Час заряджання"
             id="outlined-size-small"
@@ -118,6 +121,7 @@ const PhonesProperties = ({ setProperties }) => {
       <Grid container item spacing={2} direction="row">
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Оперативна пам'ять"
             id="outlined-size-small"
@@ -129,6 +133,7 @@ const PhonesProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Об'єм пам'яті"
             id="outlined-size-small"
@@ -154,6 +159,7 @@ const PhonesProperties = ({ setProperties }) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            type="number"
             style={{ width: "100%" }}
             label="Вага"
             id="outlined-size-small"
