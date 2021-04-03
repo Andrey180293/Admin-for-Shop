@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Admin-for-Shop/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/Admin-for-Shop/static/js/main.f4d9b3d0.chunk.js",
+    "main.js.map": "/Admin-for-Shop/static/js/main.f4d9b3d0.chunk.js.map",
+    "runtime-main.js": "/Admin-for-Shop/static/js/runtime-main.d01c4562.js",
+    "runtime-main.js.map": "/Admin-for-Shop/static/js/runtime-main.d01c4562.js.map",
+    "static/js/2.ad4d86fd.chunk.js": "/Admin-for-Shop/static/js/2.ad4d86fd.chunk.js",
+    "static/js/2.ad4d86fd.chunk.js.map": "/Admin-for-Shop/static/js/2.ad4d86fd.chunk.js.map",
+    "static/js/3.6beb15c4.chunk.js": "/Admin-for-Shop/static/js/3.6beb15c4.chunk.js",
+    "static/js/3.6beb15c4.chunk.js.map": "/Admin-for-Shop/static/js/3.6beb15c4.chunk.js.map",
+    "index.html": "/Admin-for-Shop/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/Admin-for-Shop/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.ad4d86fd.chunk.js.LICENSE.txt": "/Admin-for-Shop/static/js/2.ad4d86fd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d01c4562.js",
+    "static/js/2.ad4d86fd.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.f4d9b3d0.chunk.js"
+  ]
+}
