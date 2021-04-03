@@ -1,14 +1,14 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import CategorySelect from "./CategorySelect";
-import MotorcyclesProperties from "../Forms_for_Product_Properties/MotorcyclesProperties";
-import RobotsProperties from "../Forms_for_Product_Properties/RobotsProperties";
-import QudrocoptersProperties from "../Forms_for_Product_Properties/QudrocoptersProperties";
+import MotorcyclesProperties from "./Forms_for_Product_Properties/MotorcyclesProperties";
+import RobotsProperties from "./Forms_for_Product_Properties/RobotsProperties";
+import QudrocoptersProperties from "./Forms_for_Product_Properties/QudrocoptersProperties";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Icon from "@material-ui/core/Icon";
 import Grid from "@material-ui/core/Grid";
-import PhonesProperties from "../Forms_for_Product_Properties/PhonesProperties";
+import PhonesProperties from "./Forms_for_Product_Properties/PhonesProperties";
 
 const AddForm = ({
   about,
