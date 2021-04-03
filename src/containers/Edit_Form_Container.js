@@ -14,6 +14,7 @@ const Edit_Form_Container = ({
   updatePrice,
   updateName,
   deleteDataItem,
+  setUpdateData,
 }) => {
   return (
     <>
