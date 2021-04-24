@@ -5,7 +5,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { NavLink } from "react-router-dom";
 
-const CategorySelect = ({ classes, setCategory, category, newId }) => {
+const CategorySelect = ({ classes, setCategory, category }) => {
   return (
     <FormControl
       className={classes.formControl}
@@ -22,16 +22,16 @@ const CategorySelect = ({ classes, setCategory, category, newId }) => {
         <MenuItem value="" disabled>
           Виберіть категорію
         </MenuItem>
-        <MenuItem value="motorcycles" onClick={() => newId("motorcycles")}>
+        <MenuItem value="motorcycles">
           <NavLink to="/addproduct/motorcycle">Мотоцикли</NavLink>
         </MenuItem>
-        <MenuItem value="phones" onClick={() => newId("phones")}>
+        <MenuItem value="phones">
           <NavLink to="/addproduct/phones">Телефони</NavLink>
         </MenuItem>
-        <MenuItem value="robots" onClick={() => newId("robots")}>
+        <MenuItem value="robots">
           <NavLink to="/addproduct/robots">Пилоcoси</NavLink>
         </MenuItem>
-        <MenuItem value="qudrocopters" onClick={() => newId("qudrocopters")}>
+        <MenuItem value="qudrocopters">
           <NavLink to="/addproduct/qudrocopters">Квадрокоптери</NavLink>
         </MenuItem>
       </Select>

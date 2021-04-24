@@ -7,7 +7,6 @@ import {
   SET_IMAGES,
   SET_PROPERTIES,
 } from "../action-creators/data";
-import { SET_ID } from "../action-creators/products";
 
 const initialization = {
   id: null,
@@ -63,11 +62,6 @@ function dataReducer(state = initialization, action) {
       return {
         ...state,
         properties: action.payload,
-      };
-    case SET_ID:
-      return {
-        ...state,
-        id: +action.payload,
       };
 
     default:

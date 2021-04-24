@@ -5,7 +5,6 @@ export const SET_PRICE = "SET_PRICE";
 export const SET_AMOUNT = "SET_AMOUNT";
 export const SET_IMAGES = "SET_IMAGES";
 export const SET_PROPERTIES = "SET_PROPERTIES";
-export const SET_ID = "SET_ID";
 
 export const setAbout = (payload) => ({ type: SET_ABOUT, payload });
 export const setCategory = (payload) => ({ type: SET_CATEGORY, payload });

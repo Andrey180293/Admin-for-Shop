@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import AddForm_Container from "../../containers/AddForm_Container";
 import { Route } from "react-router-dom";
 import Edit_Form_Container from "../../containers/Edit_Form_Container";
+import Cart from "./EditProduct/Cart/Cart";
 const Content = ({ classes }) => {
   return (
     <main className={classes.content}>
@@ -17,6 +18,7 @@ const Content = ({ classes }) => {
       />
       <Route path="/addproduct/" render={() => <AddForm_Container />} />
       <Route path="/delete/:category" render={() => <Edit_Form_Container />} />
+      <Route path="/cart/" render={() => <Cart />} />
     </main>
   );
 };

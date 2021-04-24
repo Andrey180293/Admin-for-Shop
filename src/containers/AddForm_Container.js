@@ -13,8 +13,7 @@ import {
 } from "../store/action-creators/data";
 import {
   setUpdateData,
-  getProducts,
-  newId,
+  setOpenSnackBar,
 } from "../store/action-creators/products";
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +49,9 @@ const AddForm_Container = ({
   data,
   setUpdateData,
   products,
-  newId,
+  isOpenSnackBar,
+  snackBarMessage,
+  setOpenSnackBar,
 }) => {
   const classes = useStyles();
 
@@ -80,8 +81,10 @@ const AddForm_Container = ({
       clearFields={clearFields}
       setUpdateData={setUpdateData}
       data={data}
-      newId={newId}
       products={products}
+      isOpenSnackBar={isOpenSnackBar}
+      snackBarMessage={snackBarMessage}
+      setOpenSnackBar={setOpenSnackBar}
     />
   );
 };
@@ -94,6 +97,8 @@ const mapStateToProps = (state) => {
     price: state.data.price,
     imgValue: state.data.imgValue,
     products: state.products.products,
+    snackBarMessage: state.products.snackBarMessage,
+    isOpenSnackBar: state.products.isOpenSnackBar,
   };
 };
 
@@ -106,7 +111,7 @@ export default compose(
     setImages,
     setProperties,
     setUpdateData,
-    getProducts,
-    newId,
+
+    setOpenSnackBar,
   })
 )(AddForm_Container);

@@ -16,6 +16,7 @@ import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import AddIcon from "@material-ui/icons/Add";
 import MotorcycleIcon from "@material-ui/icons/Motorcycle";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
@@ -147,7 +148,7 @@ const Sidebar = ({ classes, getProducts }) => {
                 <ListItem
                   button
                   onClick={() => {
-                    getProducts(el.link);
+                    getProducts("products", el.link);
                   }}
                 >
                   <ListItemIcon>{el.icon}</ListItemIcon>
@@ -157,6 +158,28 @@ const Sidebar = ({ classes, getProducts }) => {
             ))}
           </List>
         )}
+
+        <List>
+          {["Редагувати корзину"].map((text, index) => (
+            <NavLink
+              key={text}
+              to="/cart/"
+              style={{ textDecorationLine: "none" }}
+            >
+              <ListItem
+                button
+                onClick={() => {
+                  getProducts("cart", "");
+                }}
+              >
+                <ListItemIcon>
+                  <AddShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </NavLink>
+          ))}
+        </List>
       </Drawer>
     </>
   );
