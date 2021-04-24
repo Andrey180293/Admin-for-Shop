@@ -4,8 +4,12 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCategory } from "../../../store/action-creators/data";
 
-const CategorySelect = ({ classes, setCategory, category }) => {
+const CategorySelect = ({ classes, category }) => {
+  const dispatch = useDispatch();
+
   return (
     <FormControl
       className={classes.formControl}
@@ -17,7 +21,7 @@ const CategorySelect = ({ classes, setCategory, category }) => {
         displayEmpty
         className={classes.selectEmpty}
         inputProps={{ "aria-label": "Without label" }}
-        onChange={(e) => setCategory(e.target.value)}
+        onChange={(e) => dispatch(setCategory(e.target.value))}
       >
         <MenuItem value="" disabled>
           Виберіть категорію

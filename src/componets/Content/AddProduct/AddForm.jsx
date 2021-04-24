@@ -10,37 +10,32 @@ import Icon from "@material-ui/core/Icon";
 import Grid from "@material-ui/core/Grid";
 import PhonesProperties from "./Forms_for_Product_Properties/PhonesProperties";
 import CustomizedSnackbars from "../../../commons/SnackBar";
+import { useSelector } from "react-redux";
 
 const AddForm = ({
-  about,
   classes,
-  category,
-  setCategory,
   setAbout,
   setPrice,
-  price,
   setName,
-  name,
-  imgValue,
   setImages,
   setProperties,
   clearFields,
-  data,
   setUpdateData,
-  products,
 }) => {
+  let category = useSelector((state) => state.data.category);
+  let about = useSelector((state) => state.data.about);
+  let price = useSelector((state) => state.data.price);
+  let name = useSelector((state) => state.data.name);
+  let data = useSelector((state) => state.data);
+  let imgValue = useSelector((state) => state.imgValue);
+
   return (
     <>
       <Grid container spacing={6} item xs={12} justify="center">
         <CustomizedSnackbars />
         <Grid container item xs={6} spacing={2} direction="row">
           <Grid item xs={4}>
-            <CategorySelect
-              setCategory={setCategory}
-              category={category}
-              classes={classes}
-              products={products}
-            />
+            <CategorySelect classes={classes} category={category} />
           </Grid>
           <Grid item xs={4}>
             {name && name.split("").length < 4 ? (
@@ -145,7 +140,7 @@ const AddForm = ({
               color="secondary"
               className={classes.button}
               startIcon={<DeleteIcon />}
-              onClick={(e) => clearFields(e)}
+              onClick={() => clearFields()}
             >
               Cancel
             </Button>

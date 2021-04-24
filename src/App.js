@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Content from "./componets/Content/Content";
-import SideBar_Container from "./containers/SideBar_Container";
+import SideBar from "./componets/Sidebar";
 
 const drawerWidth = 240;
 
@@ -77,7 +77,7 @@ export default function App() {
 
   return (
     <div className={classes.root}>
-      <SideBar_Container classes={classes} />
+      <SideBar classes={classes} />
       <Content classes={classes} />
     </div>
   );

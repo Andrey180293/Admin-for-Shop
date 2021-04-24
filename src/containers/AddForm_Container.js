@@ -11,10 +11,7 @@ import {
   setImages,
   setProperties,
 } from "../store/action-creators/data";
-import {
-  setUpdateData,
-  setOpenSnackBar,
-} from "../store/action-creators/products";
+import { setUpdateData } from "../store/action-creators/products";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,23 +32,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddForm_Container = ({
-  about,
   setAbout,
   setCategory,
-  category,
-  name,
-  price,
   setName,
   setPrice,
   setImages,
-  imgValue,
   setProperties,
-  data,
   setUpdateData,
-  products,
-  isOpenSnackBar,
-  snackBarMessage,
-  setOpenSnackBar,
 }) => {
   const classes = useStyles();
 
@@ -68,42 +55,19 @@ const AddForm_Container = ({
     <AddForm
       setName={setName}
       setPrice={setPrice}
-      name={name}
-      price={price}
-      about={about}
       classes={classes}
       setCategory={setCategory}
-      category={category}
       setAbout={setAbout}
       setImages={setImages}
-      imgValue={imgValue}
       setProperties={setProperties}
       clearFields={clearFields}
       setUpdateData={setUpdateData}
-      data={data}
-      products={products}
-      isOpenSnackBar={isOpenSnackBar}
-      snackBarMessage={snackBarMessage}
-      setOpenSnackBar={setOpenSnackBar}
     />
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    data: state.data,
-    about: state.data.about,
-    category: state.data.category,
-    name: state.data.name,
-    price: state.data.price,
-    imgValue: state.data.imgValue,
-    products: state.products.products,
-    snackBarMessage: state.products.snackBarMessage,
-    isOpenSnackBar: state.products.isOpenSnackBar,
-  };
-};
 
 export default compose(
-  connect(mapStateToProps, {
+  connect(null, {
     setAbout,
     setCategory,
     setName,
@@ -111,7 +75,5 @@ export default compose(
     setImages,
     setProperties,
     setUpdateData,
-
-    setOpenSnackBar,
   })
 )(AddForm_Container);

@@ -9,10 +9,12 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Row from "./Row";
 import CustomizedSnackbars from "../../../../commons/SnackBar";
+import Preloader from "../../../../commons/Preloader";
 
 export default function Cart() {
   const products = useSelector((state) => state.products.products);
-  console.log(products);
+  const isLoading = useSelector((state) => state.products.isLoading);
+  if (isLoading === false) return <Preloader />;
   return (
     <>
       <CustomizedSnackbars />
@@ -30,6 +32,7 @@ export default function Cart() {
               <TableCell align="left">Del</TableCell>
             </TableRow>
           </TableHead>
+
           <TableBody>
             {products &&
               products.map((row, i) => (

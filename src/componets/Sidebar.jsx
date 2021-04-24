@@ -26,12 +26,13 @@ import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { getProducts } from "../store/action-creators/products";
 
 const Sidebar = ({ classes, getProducts }) => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [openSubMenu, setopenSubMenu] = React.useState(false);
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -185,4 +186,4 @@ const Sidebar = ({ classes, getProducts }) => {
   );
 };
 
-export default Sidebar;
+export default connect(null, { getProducts })(Sidebar);
