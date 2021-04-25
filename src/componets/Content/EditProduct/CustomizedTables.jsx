@@ -44,16 +44,17 @@ export default function CustomizedTables({
   updateName,
 }) {
   const classes = useStyles();
-  const [activInputValue, setActivInputValue] = useState(null);
-  const [activeInputIndex, setActivInput] = useState(null);
+
+  const [activPriceInputValue, setActivPriceInputValue] = useState(null);
+  const [activePriceIndex, setActivPriceIndex] = useState(null);
 
   const [activNameValue, setActivNameValue] = useState(null);
   const [activNameIndex, setActivNameIndex] = useState(null);
 
   const setNewPrice = (item) => {
-    updatePrice({ ...item, price: +activInputValue });
-    setActivInputValue(null);
-    setActivInput(null);
+    updatePrice({ ...item, price: +activPriceInputValue });
+    setActivPriceInputValue(null);
+    setActivPriceIndex(null);
   };
 
   const setNewName = (item) => {
@@ -62,8 +63,8 @@ export default function CustomizedTables({
     setActivNameIndex(null);
   };
   const activeTextFieldPrice = (index, price) => {
-    setActivInputValue(price);
-    setActivInput(index);
+    setActivPriceInputValue(price);
+    setActivPriceIndex(index);
   };
   const activeTextFieldName = (index, name) => {
     setActivNameValue(name);
@@ -123,7 +124,7 @@ export default function CustomizedTables({
                   <StyledTableCell align="right">{el._id}</StyledTableCell>
                   <StyledTableCell align="right">{el.amount}</StyledTableCell>
 
-                  {activeInputIndex === index ? (
+                  {activePriceIndex === index ? (
                     <StyledTableCell align="right">
                       <TextField
                         onFocus={(e) => e.target.select()}
@@ -132,11 +133,15 @@ export default function CustomizedTables({
                         id="outlined-basic"
                         label="Outlined"
                         variant="outlined"
-                        onChange={(e) => setActivInputValue(e.target.value)}
-                        value={activInputValue}
-                        onClick={() => setActivInputValue(el.price)}
+                        onChange={(e) =>
+                          setActivPriceInputValue(e.target.value)
+                        }
+                        value={activPriceInputValue}
+                        onClick={() => setActivPriceInputValue(el.price)}
                         onBlur={() =>
-                          activInputValue === null ? el.price : setNewPrice(el)
+                          activPriceInputValue === null
+                            ? el.price
+                            : setNewPrice(el)
                         }
                       />
                     </StyledTableCell>
